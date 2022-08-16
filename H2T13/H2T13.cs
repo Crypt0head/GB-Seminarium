@@ -6,7 +6,8 @@
 
 // 32679 -> 6
 
-void ShowThirdDigit(int value){
+void ShowThirdDigit(int value)
+{
     int res = value/100%10;
 
     if(res == 0 && value/1000 == 0){
