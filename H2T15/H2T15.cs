@@ -4,7 +4,8 @@
 // 7 -> да
 // 1 -> нет
 
-void IsWeekend(int val){
+void IsWeekend(int val)
+{
     if(val > 5 && val < 8){
         Console.WriteLine("Yes");
     }
