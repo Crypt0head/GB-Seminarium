@@ -22,7 +22,7 @@ void PrintTree(int hight)
     {
         Console.Write(FillWithSym(" ", hight-i-1) + FillWithSym("*", PROG_FIRST+i*PROG_STEP) + "\n");
     }
-}    int prog_elm = 0;
+}
 
 Console.Write("Input tree hight: ");
 PrintTree(int.Parse(Console.ReadLine()));
