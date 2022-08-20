@@ -13,6 +13,7 @@ int[] GetRandomArray(int n)
         res[i] = new Random().Next(100, 1000);
     }
 
+    Console.WriteLine("Array: {0}", String.Join(", ", res));
     return res;
 }
 
