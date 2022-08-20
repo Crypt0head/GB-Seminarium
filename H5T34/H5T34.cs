@@ -18,15 +18,17 @@ int[] GetRandomArray(int n)
 
 void ShowEvenNumbers(int[] arr)
 {
+    int res = 0;
+
     foreach(int i in arr)
     {
         if(i%2 == 0)
         {
-            Console.Write("{0} ", i);
+            res++;
         }
     }
 
-    Console.WriteLine();
+    Console.WriteLine("Output: {0}", res);
 }
 
 Console.Write("Input array size: ");
