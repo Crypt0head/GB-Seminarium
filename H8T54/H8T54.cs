@@ -34,7 +34,7 @@ int[,] BubbleSort2DArrRows(int[,] arr)
     {
         for(int j=0;j<columns-1;j++)
         {
-            bool bSort = true;
+            bool bSort = false;
             for(int k=0;k<columns-j-1;k++)
             {
                 if(arr[i,k+1]>arr[i,k])
@@ -44,8 +44,8 @@ int[,] BubbleSort2DArrRows(int[,] arr)
                     arr[i,k+1] = tmp;
                     bSort = true;
                 }
-                if(!bSort) break;
             }
+            if(!bSort) break;
         }
     }
     return arr;
