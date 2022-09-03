@@ -29,8 +29,8 @@ int[] BubbleSort(int[] arr)
                 arr[j+1] = tmp;
                 bSort = true;
             }
-            if(!bSort) break; 
         }
+        if(!bSort) break; 
     }
 
     return arr;
