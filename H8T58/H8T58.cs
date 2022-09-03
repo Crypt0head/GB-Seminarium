@@ -6,11 +6,12 @@
 // 18 20
 // 15 18
 
-public class Matrix2D
+public class Matrix2D : IEnumerable<int>
 {
     public int[,] arr;
-    public int rows;
-    public int columns;
+    public int rows=0;
+    public int columns=0;
+    private List<int> internalList = new List<int>();
 
     public Matrix2D(int row = 0, int col = 0)
     {
@@ -24,6 +25,35 @@ public class Matrix2D
     {
         arr = new int[1,1];
         arr[0,0] = 0;
+    }
+
+    public IEnumerator<int> GetEnumerator() => internalList.GetEnumerator();
+    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() => internalList.GetEnumerator();
+
+    public void InsertFromList()
+    {
+        if(internalList.Count() == 0)
+            return;
+
+        rows = internalList.Count()/2;
+        columns = rows;
+
+        arr = new int[rows, columns];
+        int[] tmp = internalList.ToArray();
+        for(int i=0, offset = 0;i<rows;i++)
+        {
+            for(int j=0;j<columns;j++)
+            {
+                arr[i, j] = tmp[offset++];
+            }
+        }
+
+        internalList.Clear();
+    }
+
+    public void Add(int value)
+    {
+        internalList.Add(value);
     }
 
     public int[,] MakeRandomArray(int row, int col)
@@ -94,9 +124,9 @@ class MatrixMultiplication
 {
     static void Main()
     {
-        Matrix2D mtx1 = new Matrix2D(2,2);
+        Matrix2D mtx1 = new Matrix2D{2,4,3,2}; mtx1.InsertFromList();
         Console.WriteLine($"Matrix1:\n{mtx1.ToString()}");
-        Matrix2D mtx2 = new Matrix2D(2,2);
+        Matrix2D mtx2 = new Matrix2D{3,4,3,3}; mtx2.InsertFromList();
         Console.WriteLine($"Matrix2:\n{mtx2.ToString()}");
 
         Console.WriteLine($"Matrix1*Matrix2:\n{(mtx1*mtx2).ToString()}");
