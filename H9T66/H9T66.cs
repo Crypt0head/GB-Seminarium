@@ -3,15 +3,17 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
-Console.WriteLine("Enter two numbers as first and last range values: ");
-double m = Double.Parse(Console.ReadLine());
-double n = Double.Parse(Console.ReadLine());
-
-double res = 0;
-
-for(double i = Math.Round(m+0.4, MidpointRounding.AwayFromZero);i<=Math.Round(n, MidpointRounding.ToZero);i++)
+double f(double m, double n)
 {
-    res+=i;
+    double res = 0;
+
+    for(double i = Math.Round(m+0.4, MidpointRounding.AwayFromZero);i<=Math.Round(n, MidpointRounding.ToZero);i++)
+    {
+        res+=i;
+    }
+
+    return res;
 }
 
-Console.WriteLine("Output: {0}", res);
+Console.WriteLine("Enter two numbers as first and last range values: ");
+Console.WriteLine("Output: {0}", f(Double.Parse(Console.ReadLine()),Double.Parse(Console.ReadLine())));
